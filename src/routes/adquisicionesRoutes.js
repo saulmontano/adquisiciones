@@ -5,7 +5,7 @@ const adquisicionesController = require("../controllers/adquisicionesController"
 // Ruta para obtener todas las adquisiciones
 router.get("/", adquisicionesController.getAllAdquisiciones);
 
-// Ruta para obtener una adquisición por ID
+// Ruta para obtener  por ID
 router.get("/:id", adquisicionesController.getAdquisicionById);
 
 // Ruta para crear una nueva adquisición
