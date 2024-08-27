@@ -64,7 +64,7 @@ button:hover {
   background-color: #3A799A;
 }
 
-/* Estilos del grid para las tarjetas */
+
 .grid-container {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
