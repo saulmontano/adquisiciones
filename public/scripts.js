@@ -259,7 +259,7 @@ function hideModal() {
   }
 }
 
-// Agregar eventos para cerrar el modal
+// Agregar eventos  cerrar el modal
 const modalClose = document.getElementById("modalClose");
 const modalOverlay = document.getElementById("modalOverlay");
 
