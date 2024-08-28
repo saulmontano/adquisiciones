@@ -118,12 +118,79 @@ button:hover {
 
 .modal-content {
   background-color: #fefefe;
-  margin: 15% auto;
+  margin: 10% auto;
   padding: 20px;
-  border: 1px solid #888;
+  border-radius: 8px; /* Esquinas redondeadas más suaves */
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); /* Sombra suave */
   width: 80%;
-  max-width: 600px;
+  max-width: 600px; /* Mantiene el tamaño máximo para pantallas grandes */
+  font-family: Arial, sans-serif; /* Consistencia tipográfica */
+  color: #2C3555; /* Consistencia en el color del texto */
+}
+
+.modal-content h2 {
+  font-size: 1.5rem;
+  margin-bottom: 15px;
+  color: #566DB3; /* Color que combina con el esquema general */
+}
+/* Estilos para las entradas del historial */
+.historial-entry {
+  margin-bottom: 20px;
+  padding: 15px;
+  background-color: #f8f8f8;
+  border-radius: 8px;
+  border: 1px solid #ddd;
+}
+
+.historial-item {
+  margin-bottom: 10px;
+}
+
+.label {
+  font-weight: bold;
+  color: #566DB3;
+  display: inline-block;
+  width: 150px; /* Ancho fijo para alinear etiquetas */
+}
+
+.value {
+  color: #333;
+  display: inline-block;
+}
+
+
+#modalContent {
+  font-size: 1rem;
+  line-height: 1.6;
+}
+
+#modalContent p {
+  margin: 10px 0;
+}
+
+#modalContent .label {
+  font-weight: bold;
+  color: #566DB3;
+  display: inline-block;
+  width: 150px; /* Ancho fijo para alinear etiquetas */
+}
+
+#modalContent .value {
+  color: #333;
+  display: inline-block;
+  margin-left: 5px;
+}
+
+#modalContent .json-content {
+  background-color: #f4f4f9;
+  border: 1px solid #ddd;
   border-radius: 5px;
+  padding: 10px;
+  font-family: 'Courier New', Courier, monospace;
+  color: #2C3555;
+  overflow-x: auto;
+  white-space: pre-wrap;
+  word-wrap: break-word;
 }
 
 .close {
@@ -131,13 +198,12 @@ button:hover {
   float: right;
   font-size: 28px;
   font-weight: bold;
+  cursor: pointer;
 }
 
 .close:hover,
 .close:focus {
-  color: black;
-  text-decoration: none;
-  cursor: pointer;
+  color: #333;
 }
 
 .modal-overlay {

@@ -430,18 +430,60 @@ function viewHistorial(id) {
           data.forEach((entry) => {
             const entryDiv = document.createElement("div");
             entryDiv.className = "historial-entry";
+
+            // Construir la estructura HTML para cada campo del JSON
             entryDiv.innerHTML = `
-              <p><strong>Fecha:</strong> ${new Date(
-                entry.fecha
-              ).toLocaleString()}</p>
-              <p><strong>Tipo de Cambio:</strong> ${entry.tipoCambio}</p>
-              <p><strong>Cambio:</strong></p>
-              <pre>${JSON.stringify(entry.cambio, null, 2)}</pre>
+              <div class="historial-item">
+                <label class="label">Fecha:</label>
+                <span class="value">${new Date(
+                  entry.fecha
+                ).toLocaleString()}</span>
+              </div>
+              <div class="historial-item">
+                <label class="label">Tipo de Cambio:</label>
+                <span class="value">${entry.tipoCambio || "No definido"}</span>
+              </div>
+              <div class="historial-item">
+                <label class="label">Cantidad:</label>
+                <span class="value">${entry.cambio.cantidad}</span>
+              </div>
+              <div class="historial-item">
+                <label class="label">Documentación:</label>
+                <span class="value">${entry.cambio.documentacion}</span>
+              </div>
+              <div class="historial-item">
+                <label class="label">Fecha de Adquisición:</label>
+                <span class="value">${entry.cambio.fecha}</span>
+              </div>
+              <div class="historial-item">
+                <label class="label">Presupuesto:</label>
+                <span class="value">${entry.cambio.presupuesto}</span>
+              </div>
+              <div class="historial-item">
+                <label class="label">Proveedor:</label>
+                <span class="value">${entry.cambio.proveedor}</span>
+              </div>
+              <div class="historial-item">
+                <label class="label">Tipo de Bien o Servicio:</label>
+                <span class="value">${entry.cambio.tipo}</span>
+              </div>
+              <div class="historial-item">
+                <label class="label">Unidad Administrativa:</label>
+                <span class="value">${entry.cambio.unidad}</span>
+              </div>
+              <div class="historial-item">
+                <label class="label">Valor Unitario:</label>
+                <span class="value">${entry.cambio.valorUnitario}</span>
+              </div>
+              <div class="historial-item">
+                <label class="label">Valor Total:</label>
+                <span class="value">${entry.cambio.valorTotal}</span>
+              </div>
             `;
             modalContent.appendChild(entryDiv);
           });
         }
-        showModal();
+        showModal(); // Función para mostrar el modal
       } else {
         console.error("Contenido del modal no encontrado.");
       }
