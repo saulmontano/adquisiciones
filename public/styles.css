@@ -6,6 +6,7 @@ body {
   padding: 0;
   line-height: 1.6;
 }
+
 #logo {
   width: 250px; 
   height: 80px; 
@@ -29,7 +30,6 @@ main {
   padding: 0 20px;
   max-width: 1200px;
   margin: 20px auto;
-
 }
 
 section {
@@ -63,7 +63,6 @@ button {
 button:hover {
   background-color: #3A799A;
 }
-
 
 .grid-container {
   display: grid;
@@ -140,26 +139,90 @@ button:hover {
   display: none; /* Oculta el overlay por defecto */
 }
 
+/* Estilos para la sección de filtros */
+#filtros {
+  background-color: #f8f8f8; /* Fondo gris claro */
+  padding: 20px;
+  border-radius: 8px; /* Esquinas redondeadas */
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1); /* Sombra suave */
+  margin-bottom: 20px; /* Espacio debajo de la sección */
+}
+
+/* Estilo para los elementos del formulario de filtros */
+#filtros form {
+  display: flex;
+  flex-wrap: wrap; /* Permite que los elementos se ajusten */
+  gap: 15px; /* Espacio entre los elementos */
+}
+
+#filtros label {
+  font-weight: bold;
+  margin-bottom: 5px;
+  display: block; /* Hace que el label ocupe toda la línea */
+}
+
+#filtros select,
+#filtros input[type="date"] {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ccc; /* Borde gris claro */
+  border-radius: 4px; /* Esquinas redondeadas */
+  box-sizing: border-box; /* Asegura que el padding no afecte el tamaño total */
+  font-size: 16px;
+  background-color: #fff;
+  appearance: none; /* Remueve el estilo predeterminado de los select en algunos navegadores */
+}
+
+/* Estilo específico para los select */
+#filtros select {
+  background: url('data:image/svg+xml;charset=US-ASCII,<svg xmlns="http://www.w3.org/2000/svg" width="10" height="5" viewBox="0 0 10 5"><path fill="%23ccc" d="M0 0l5 5 5-5z"/></svg>') no-repeat right 10px center;
+  background-size: 10px 5px;
+}
+
+#filtros button {
+  background-color: #007bff; /* Color de fondo azul */
+  color: #fff; /* Texto blanco */
+  border: none;
+  padding: 10px 20px;
+  font-size: 16px;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s ease; /* Transición suave en el cambio de color */
+  align-self: flex-end; /* Coloca el botón al final del contenedor flex */
+}
+
+#filtros button:hover {
+  background-color: #0056b3; /* Cambio de color al pasar el mouse */
+}
 
 @media (max-width: 768px) {
   h1 {
-      font-size: 1.5rem;
+    font-size: 1.5rem;
   }
 
   input, textarea, button {
-      font-size: 0.9rem;
-      padding: 8px;
+    font-size: 0.9rem;
+    padding: 8px;
+  }
+
+  /* Estilos responsivos para la sección de filtros */
+  #filtros form {
+    flex-direction: column; /* Coloca los elementos en una columna */
+  }
+
+  #filtros button {
+    width: 100%; /* Hace que el botón ocupe todo el ancho */
+    margin-top: 10px;
   }
 }
 
 @media (max-width: 480px) {
   h1 {
-      font-size: 1.2rem;
+    font-size: 1.2rem;
   }
 
   .grid-container {
-      grid-template-columns: 1fr;
+    grid-template-columns: 1fr;
   }
 }
-
-  
+ 

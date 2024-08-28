@@ -129,5 +129,46 @@ def get_historial(id):
             return jsonify(adq.get('historial', []))
     return jsonify({'error': 'Adquisición no encontrada'}), 404
 
+@app.route('/filtros/unidades', methods=['GET'])
+def get_unidades_administrativas():
+    data = load_data()
+    adquisiciones = data.get('adquisiciones', [])
+    
+    # Obtener todas las unidades administrativas únicas
+    unidades = sorted(list(set(adq['unidad'] for adq in adquisiciones if 'unidad' in adq)))
+    
+    return jsonify(unidades)
+
+@app.route('/filtros/tipos', methods=['GET'])
+def get_tipos():
+    data = load_data()
+    adquisiciones = data.get('adquisiciones', [])
+    
+    # Obtener todos los tipos de bien o servicio únicos
+    tipos = sorted(list(set(adq['tipo'] for adq in adquisiciones if 'tipo' in adq)))
+    
+    return jsonify(tipos)
+
+@app.route('/filtros/proveedores', methods=['GET'])
+def get_proveedores():
+    data = load_data()
+    adquisiciones = data.get('adquisiciones', [])
+    
+    # Obtener todos los proveedores únicos
+    proveedores = sorted(list(set(adq['proveedor'] for adq in adquisiciones if 'proveedor' in adq)))
+    
+    return jsonify(proveedores)
+
+@app.route('/filtros/documentaciones', methods=['GET'])
+def get_documentaciones():
+    data = load_data()
+    adquisiciones = data.get('adquisiciones', [])
+    
+    # Obtener todas las documentaciones únicas
+    documentaciones = sorted(list(set(adq['documentacion'] for adq in adquisiciones if 'documentacion' in adq)))
+    
+    return jsonify(documentaciones)
+
+
 if __name__ == '__main__':
     app.run(debug=True)

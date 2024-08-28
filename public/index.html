@@ -80,23 +80,31 @@
         <h2>Filtros</h2>
         <form id="filtroForm">
           <label for="filtroUnidad">Filtrar por Unidad Administrativa:</label>
-          <input type="text" id="filtroUnidad" name="filtroUnidad" />
+          <select id="filtroUnidad" name="filtroUnidad">
+            <option value="">Seleccione una unidad</option>
+            <!-- Las opciones se cargarán dinámicamente desde JavaScript -->
+          </select>
 
           <label for="filtroTipo">Filtrar por Tipo de Bien o Servicio:</label>
-          <input type="text" id="filtroTipo" name="filtroTipo" />
+          <select id="filtroTipo" name="filtroTipo">
+            <option value="">Seleccione un tipo</option>
+            <!-- Las opciones se cargarán dinámicamente desde JavaScript -->
+          </select>
 
           <label for="filtroFecha">Filtrar por Fecha:</label>
           <input type="date" id="filtroFecha" name="filtroFecha" />
 
           <label for="filtroDocumentacion">Filtrar por Documentación:</label>
-          <input
-            type="text"
-            id="filtroDocumentacion"
-            name="filtroDocumentacion"
-          />
+          <select id="filtroDocumentacion" name="filtroDocumentacion">
+            <option value="">Seleccione una documentación</option>
+            <!-- Las opciones se cargarán dinámicamente desde JavaScript -->
+          </select>
 
           <label for="filtroProveedor">Filtrar por Proveedor:</label>
-          <input type="text" id="filtroProveedor" name="filtroProveedor" />
+          <select id="filtroProveedor" name="filtroProveedor">
+            <option value="">Seleccione un proveedor</option>
+            <!-- Las opciones se cargarán dinámicamente desde JavaScript -->
+          </select>
 
           <button type="button" id="aplicarFiltro">Aplicar Filtros</button>
         </form>

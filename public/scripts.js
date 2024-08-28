@@ -1,4 +1,5 @@
 const apiUrl = "http://localhost:5000/adquisiciones";
+const Urlapi = "http://localhost:5000";
 
 // Función para obtener adquisiciones con filtros aplicados
 function fetchAdquisiciones(
@@ -107,6 +108,114 @@ function aplicarFiltros() {
     filtroProveedor
   );
 }
+
+function cargarUnidadesAdministrativas() {
+  fetch(`${Urlapi}/filtros/unidades`)
+    .then((response) => {
+      if (!response.ok) {
+        throw new Error(`HTTP error! status: ${response.status}`);
+      }
+      return response.json();
+    })
+    .then((data) => {
+      const filtroUnidadSelect = document.getElementById("filtroUnidad");
+      filtroUnidadSelect.innerHTML =
+        "<option value=''>Seleccione una unidad</option>";
+      data.forEach((unidad) => {
+        const option = document.createElement("option");
+        option.value = unidad;
+        option.textContent = unidad;
+        filtroUnidadSelect.appendChild(option);
+      });
+    })
+    .catch((error) =>
+      console.error("Error cargando unidades administrativas:", error)
+    );
+}
+
+function cargarTipos() {
+  fetch(`${Urlapi}/filtros/tipos`)
+    .then((response) => {
+      if (!response.ok) {
+        throw new Error(`HTTP error! status: ${response.status}`);
+      }
+      return response.json();
+    })
+    .then((data) => {
+      const filtroTipoSelect = document.getElementById("filtroTipo");
+      filtroTipoSelect.innerHTML =
+        "<option value=''>Seleccione un tipo</option>";
+      data.forEach((tipo) => {
+        const option = document.createElement("option");
+        option.value = tipo;
+        option.textContent = tipo;
+        filtroTipoSelect.appendChild(option);
+      });
+    })
+    .catch((error) =>
+      console.error("Error cargando tipos de bien o servicio:", error)
+    );
+}
+
+function cargarProveedores() {
+  fetch(`${Urlapi}/filtros/proveedores`)
+    .then((response) => {
+      if (!response.ok) {
+        throw new Error(`HTTP error! status: ${response.status}`);
+      }
+      return response.json();
+    })
+    .then((data) => {
+      const filtroProveedorSelect = document.getElementById("filtroProveedor");
+      filtroProveedorSelect.innerHTML =
+        "<option value=''>Seleccione un proveedor</option>";
+      data.forEach((proveedor) => {
+        const option = document.createElement("option");
+        option.value = proveedor;
+        option.textContent = proveedor;
+        filtroProveedorSelect.appendChild(option);
+      });
+    })
+    .catch((error) => console.error("Error cargando proveedores:", error));
+}
+
+function cargarDocumentaciones() {
+  fetch(`${Urlapi}/filtros/documentaciones`)
+    .then((response) => {
+      if (!response.ok) {
+        throw new Error(`HTTP error! status: ${response.status}`);
+      }
+      return response.json();
+    })
+    .then((data) => {
+      const filtroDocumentacionSelect = document.getElementById(
+        "filtroDocumentacion"
+      );
+      filtroDocumentacionSelect.innerHTML =
+        "<option value=''>Seleccione una documentación</option>";
+      data.forEach((documentacion) => {
+        const option = document.createElement("option");
+        option.value = documentacion;
+        option.textContent = documentacion;
+        filtroDocumentacionSelect.appendChild(option);
+      });
+    })
+    .catch((error) => console.error("Error cargando documentaciones:", error));
+}
+
+document.addEventListener("DOMContentLoaded", function () {
+  cargarUnidadesAdministrativas();
+  cargarTipos();
+  cargarProveedores();
+  cargarDocumentaciones();
+  fetchAdquisiciones(); // Cargar adquisiciones al cargar la página
+
+  // Agregar el evento al botón de aplicar filtros
+  const aplicarFiltroButton = document.getElementById("aplicarFiltro");
+  if (aplicarFiltroButton) {
+    aplicarFiltroButton.addEventListener("click", aplicarFiltros);
+  }
+});
 
 function updateValorTotal() {
   const cantidadInput = document.getElementById("cantidad");

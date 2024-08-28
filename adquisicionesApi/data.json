@@ -25,6 +25,19 @@
             "proveedor": "Laboratorios Bayer S.A.",
             "documentacion": "Orden de compra No. 2023-07-20-001, factura No. 2023-07-20-001",
             "historial": []
+        },
+        {
+            "id": 5,
+            "presupuesto": 12000000,
+            "unidad": "informatica",
+            "tipo": "equipos",
+            "cantidad": 2,
+            "valorUnitario": 3000000,
+            "valorTotal": 6000000,
+            "fecha": "2024-08-26",
+            "proveedor": "creditosmonta\u00f1o",
+            "documentacion": "123456789-10",
+            "historial": []
         }
     ]
 }
