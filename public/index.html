@@ -115,6 +115,82 @@
       </div>
 
       <div id="modalOverlay" class="modal-overlay"></div>
+
+      <!-- Modal para edición -->
+      <div id="editModal" class="modal">
+        <div class="modal-content">
+          <span id="modalCloseEdit" class="close">&times;</span>
+          <h2>Editar Adquisición</h2>
+          <form id="editForm">
+            <div class="form-group">
+              <label for="editPresupuesto">Presupuesto:</label>
+              <input
+                type="text"
+                id="editPresupuesto"
+                name="editPresupuesto"
+                required
+              />
+            </div>
+            <div class="form-group">
+              <label for="editUnidad">Unidad Administrativa:</label>
+              <input type="text" id="editUnidad" name="editUnidad" required />
+            </div>
+            <div class="form-group">
+              <label for="editTipo">Tipo de Bien o Servicio:</label>
+              <input type="text" id="editTipo" name="editTipo" required />
+            </div>
+            <div class="form-group">
+              <label for="editCantidad">Cantidad:</label>
+              <input
+                type="number"
+                id="editCantidad"
+                name="editCantidad"
+                required
+              />
+            </div>
+            <div class="form-group">
+              <label for="editValorUnitario">Valor Unitario:</label>
+              <input
+                type="number"
+                id="editValorUnitario"
+                name="editValorUnitario"
+                required
+              />
+            </div>
+            <div class="form-group">
+              <label for="editValorTotal">Valor Total:</label>
+              <input
+                type="number"
+                id="editValorTotal"
+                name="editValorTotal"
+                readonly
+              />
+            </div>
+            <div class="form-group">
+              <label for="editFecha">Fecha de Adquisición:</label>
+              <input type="date" id="editFecha" name="editFecha" required />
+            </div>
+            <div class="form-group">
+              <label for="editProveedor">Proveedor:</label>
+              <input
+                type="text"
+                id="editProveedor"
+                name="editProveedor"
+                required
+              />
+            </div>
+            <div class="form-group">
+              <label for="editDocumentacion">Documentación:</label>
+              <textarea
+                id="editDocumentacion"
+                name="editDocumentacion"
+                required
+              ></textarea>
+            </div>
+            <button type="submit">Guardar Cambios</button>
+          </form>
+        </div>
+      </div>
     </main>
     <script src="scripts.js"></script>
   </body>

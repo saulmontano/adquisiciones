@@ -1,19 +1,6 @@
 {
     "adquisiciones": [
         {
-            "id": 3,
-            "presupuesto": 4000000,
-            "unidad": "sistemas",
-            "tipo": "conexcion a internet",
-            "cantidad": 1,
-            "valorUnitario": 2000000,
-            "valorTotal": 2000000,
-            "fecha": "2024-06-04",
-            "proveedor": "claro",
-            "documentacion": "internet",
-            "historial": []
-        },
-        {
             "id": 4,
             "presupuesto": 10000000000,
             "unidad": "Direcci\u00f3n de Medicamentos y Tecnolog\u00edas en Salud",
@@ -28,16 +15,31 @@
         },
         {
             "id": 5,
-            "presupuesto": 12000000,
+            "presupuesto": "12000000",
             "unidad": "informatica",
             "tipo": "equipos",
-            "cantidad": 2,
-            "valorUnitario": 3000000,
-            "valorTotal": 6000000,
+            "cantidad": "2",
+            "valorUnitario": "3000000",
+            "valorTotal": "6000000",
             "fecha": "2024-08-26",
             "proveedor": "creditosmonta\u00f1o",
-            "documentacion": "123456789-10",
-            "historial": []
+            "documentacion": "123456789-10.1",
+            "historial": [
+                {
+                    "cambio": {
+                        "presupuesto": "12000000",
+                        "unidad": "informatica",
+                        "tipo": "equipos",
+                        "cantidad": "2",
+                        "valorUnitario": "3000000",
+                        "valorTotal": "6000000",
+                        "fecha": "2024-08-26",
+                        "proveedor": "creditosmonta\u00f1o",
+                        "documentacion": "123456789-10.1"
+                    },
+                    "fecha": "2024-08-28T11:39:06.492624"
+                }
+            ]
         }
     ]
 }

@@ -18,6 +18,7 @@ function fetchAdquisiciones(
   if (filtroDocumentacion)
     url.searchParams.append("documentacion", filtroDocumentacion);
   if (filtroProveedor) url.searchParams.append("proveedor", filtroProveedor);
+  console.log("URL de la solicitud:", url.toString()); // Agregar este log para depuración
 
   fetch(url)
     .then((response) => response.json())
@@ -294,26 +295,107 @@ document.addEventListener("DOMContentLoaded", function () {
 
 function editAdquisicion(id) {
   fetch(`${apiUrl}/${id}`)
-    .then((response) => response.json())
-    .then((data) => {
-      const form = document.getElementById("adquisicionForm");
-      if (form) {
-        form.presupuesto.value = data.presupuesto || "";
-        form.unidad.value = data.unidad || "";
-        form.tipo.value = data.tipo || "";
-        form.cantidad.value = data.cantidad || "";
-        form.valorUnitario.value = data.valorUnitario || ""; // Cambiado a valorUnitario
-        form.valorTotal.value = data.valorTotal || ""; // Cambiado a valorTotal
-        form.fecha.value = data.fecha || "";
-        form.proveedor.value = data.proveedor || "";
-        form.documentacion.value = data.documentacion || "";
-        form.dataset.id = data.id; // Guardar el ID en el dataset del formulario
+    .then((response) => {
+      if (!response.ok) {
+        throw new Error(`HTTP error! status: ${response.status}`);
       }
+      return response.json();
+    })
+    .then((data) => {
+      // Prellenar los datos en el modal de edición
+      document.getElementById("editPresupuesto").value = data.presupuesto || "";
+      document.getElementById("editUnidad").value = data.unidad || "";
+      document.getElementById("editTipo").value = data.tipo || "";
+      document.getElementById("editCantidad").value = data.cantidad || "";
+      document.getElementById("editValorUnitario").value =
+        data.valorUnitario || "";
+      document.getElementById("editValorTotal").value = data.valorTotal || "";
+      document.getElementById("editFecha").value = data.fecha || "";
+      document.getElementById("editProveedor").value = data.proveedor || "";
+      document.getElementById("editDocumentacion").value =
+        data.documentacion || "";
+
+      // Guardar los valores originales en el dataset del formulario para comparación
+      const editForm = document.getElementById("editForm");
+      editForm.dataset.originalData = JSON.stringify(data);
+      editForm.dataset.id = id;
+
+      // Abrir el modal de edición
+      const editModal = document.getElementById("editModal");
+      editModal.style.display = "block";
     })
     .catch((error) =>
       console.error("Error al cargar los datos de la adquisición:", error)
     );
 }
+
+document
+  .getElementById("editForm")
+  .addEventListener("submit", function (event) {
+    event.preventDefault();
+
+    const id = this.dataset.id;
+    const originalData = JSON.parse(this.dataset.originalData);
+    const data = {
+      presupuesto: document.getElementById("editPresupuesto").value,
+      unidad: document.getElementById("editUnidad").value,
+      tipo: document.getElementById("editTipo").value,
+      cantidad: document.getElementById("editCantidad").value,
+      valorUnitario: document.getElementById("editValorUnitario").value,
+      valorTotal: document.getElementById("editValorTotal").value,
+      fecha: document.getElementById("editFecha").value,
+      proveedor: document.getElementById("editProveedor").value,
+      documentacion: document.getElementById("editDocumentacion").value,
+    };
+
+    // Comparar los datos actuales con los originales
+    const hasChanges = Object.keys(data).some(
+      (key) => data[key] !== originalData[key]
+    );
+
+    if (!hasChanges) {
+      alert("No se han realizado cambios.");
+      return;
+    }
+
+    fetch(`${apiUrl}/${id}`, {
+      method: "PUT",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(data),
+    })
+      .then((response) => {
+        if (response.ok) {
+          document.getElementById("editModal").style.display = "none";
+          fetchAdquisiciones(); // Recargar la lista de adquisiciones
+        } else {
+          console.error("Error al actualizar la adquisición");
+        }
+      })
+      .catch((error) =>
+        console.error("Error al enviar el formulario de edición:", error)
+      );
+  });
+// Cerrar el modal de edición
+function closeEditModal() {
+  const editModal = document.getElementById("editModal");
+  if (editModal) {
+    editModal.style.display = "none";
+  }
+}
+
+// Event listeners para cerrar el modal
+document
+  .getElementById("modalCloseEdit")
+  .addEventListener("click", closeEditModal);
+document
+  .getElementById("editModal")
+  .addEventListener("click", function (event) {
+    if (event.target === this) {
+      closeEditModal();
+    }
+  });
 
 function deleteAdquisicion(id) {
   fetch(`${apiUrl}/${id}`, { method: "DELETE" })
