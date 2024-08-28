@@ -1,58 +1,64 @@
 {
     "adquisiciones": [
         {
-            "id": 4,
-            "presupuesto": "10000000000",
+            "id": 1,
+            "presupuesto": "1000000000023",
             "unidad": "Direcci\u00f3n de Medicamentos y Tecnolog\u00edas en Salud",
             "tipo": "Medicamentos",
-            "cantidad": "100051",
-            "valorUnitario": "2000",
-            "valorTotal": "200000000",
-            "fecha": "2023-07-20",
+            "cantidad": "10000",
+            "valorUnitario": "1000",
+            "valorTotal": "10000000",
+            "fecha": "2024-08-21",
             "proveedor": "Laboratorios Bayer S.A.",
             "documentacion": "Orden de compra No. 2023-07-20-001, factura No. 2023-07-20-001",
             "historial": [
                 {
-                    "cambio": {
-                        "presupuesto": "10000000000",
+                    "estado_anterior": {
+                        "id": 1,
+                        "presupuesto": 10000000000,
                         "unidad": "Direcci\u00f3n de Medicamentos y Tecnolog\u00edas en Salud",
                         "tipo": "Medicamentos",
-                        "cantidad": "100051",
-                        "valorUnitario": "2000",
-                        "valorTotal": "200000000",
-                        "fecha": "2023-07-20",
+                        "cantidad": 10000,
+                        "valorUnitario": 1000,
+                        "valorTotal": 10000000,
+                        "fecha": "2024-08-21",
                         "proveedor": "Laboratorios Bayer S.A.",
                         "documentacion": "Orden de compra No. 2023-07-20-001, factura No. 2023-07-20-001"
                     },
-                    "fecha": "2024-08-28T13:50:55.287835"
-                }
-            ]
-        },
-        {
-            "id": 5,
-            "presupuesto": "15000000",
-            "unidad": "sistemas",
-            "tipo": "equipos",
-            "cantidad": "10",
-            "valorUnitario": "1000000",
-            "valorTotal": "10000000",
-            "fecha": "2024-08-28",
-            "proveedor": "empresar",
-            "documentacion": "factura No 00012",
-            "historial": [
+                    "fecha": "2024-08-28T15:19:49.728805",
+                    "tipoCambio": "Antes de la actualizaci\u00f3n"
+                },
                 {
-                    "cambio": {
-                        "presupuesto": "15000000",
-                        "unidad": "sistemas",
-                        "tipo": "equipos",
-                        "cantidad": "10",
-                        "valorUnitario": "1000000",
+                    "estado_anterior": {
+                        "id": 1,
+                        "presupuesto": "10000000000",
+                        "unidad": "Direcci\u00f3n de Medicamentos y Tecnolog\u00edas en Salud",
+                        "tipo": "Medicamentos",
+                        "cantidad": "10000",
+                        "valorUnitario": "1000",
                         "valorTotal": "10000000",
-                        "fecha": "2024-08-28",
-                        "proveedor": "empresar",
-                        "documentacion": "factura No 00012"
+                        "fecha": "2024-08-21",
+                        "proveedor": "Laboratorios Bayer S.A.",
+                        "documentacion": "Orden de compra No. 2023-07-20-001, factura No. 2023-07-20-001"
                     },
-                    "fecha": "2024-08-28T13:54:25.520759"
+                    "fecha": "2024-08-28T15:20:09.509240",
+                    "tipoCambio": "Antes de la actualizaci\u00f3n"
+                },
+                {
+                    "estado_anterior": {
+                        "id": 1,
+                        "presupuesto": "100000000002",
+                        "unidad": "Direcci\u00f3n de Medicamentos y Tecnolog\u00edas en Salud",
+                        "tipo": "Medicamentos",
+                        "cantidad": "10000",
+                        "valorUnitario": "1000",
+                        "valorTotal": "10000000",
+                        "fecha": "2024-08-21",
+                        "proveedor": "Laboratorios Bayer S.A.",
+                        "documentacion": "Orden de compra No. 2023-07-20-001, factura No. 2023-07-20-001"
+                    },
+                    "fecha": "2024-08-28T15:20:24.718003",
+                    "tipoCambio": "Antes de la actualizaci\u00f3n"
                 }
             ]
         }

@@ -93,18 +93,27 @@ def update_adquisicion(id):
     request_data = request.get_json()
     data = load_data()
     adquisiciones = data.get('adquisiciones', [])
+    
     for adq in adquisiciones:
         if adq['id'] == id:
             # Asegurarse de que 'historial' exista
             if 'historial' not in adq:
                 adq['historial'] = []
-            adq.update(request_data)
+
+            # Guardar el estado actual (antes del cambio) en el historial
             adq['historial'].append({
-                'cambio': request_data,
-                'fecha': datetime.now().isoformat()
+                'estado_anterior': {k: adq[k] for k in adq if k != 'historial'},  # Excluir el historial del estado anterior
+                'fecha': datetime.now().isoformat(),
+                'tipoCambio': 'Antes de la actualización'
             })
+            
+            # Actualizar la adquisición con los nuevos datos
+            adq.update(request_data)
+            
+            # Guardar los datos actualizados
             save_data(data)
             return jsonify(adq)
+    
     return jsonify({'error': 'Adquisición no encontrada'}), 404
 
 # Ruta para eliminar una adquisición por ID

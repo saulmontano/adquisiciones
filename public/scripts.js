@@ -444,40 +444,44 @@ function viewHistorial(id) {
                 <span class="value">${entry.tipoCambio || "No definido"}</span>
               </div>
               <div class="historial-item">
-                <label class="label">Cantidad:</label>
-                <span class="value">${entry.cambio.cantidad}</span>
-              </div>
-              <div class="historial-item">
-                <label class="label">Documentación:</label>
-                <span class="value">${entry.cambio.documentacion}</span>
-              </div>
-              <div class="historial-item">
-                <label class="label">Fecha de Adquisición:</label>
-                <span class="value">${entry.cambio.fecha}</span>
-              </div>
-              <div class="historial-item">
                 <label class="label">Presupuesto:</label>
-                <span class="value">${entry.cambio.presupuesto}</span>
-              </div>
-              <div class="historial-item">
-                <label class="label">Proveedor:</label>
-                <span class="value">${entry.cambio.proveedor}</span>
-              </div>
-              <div class="historial-item">
-                <label class="label">Tipo de Bien o Servicio:</label>
-                <span class="value">${entry.cambio.tipo}</span>
+                <span class="value">${entry.estado_anterior.presupuesto}</span>
               </div>
               <div class="historial-item">
                 <label class="label">Unidad Administrativa:</label>
-                <span class="value">${entry.cambio.unidad}</span>
+                <span class="value">${entry.estado_anterior.unidad}</span>
+              </div>
+              <div class="historial-item">
+                <label class="label">Tipo de Bien o Servicio:</label>
+                <span class="value">${entry.estado_anterior.tipo}</span>
+              </div>
+              <div class="historial-item">
+                <label class="label">Cantidad:</label>
+                <span class="value">${entry.estado_anterior.cantidad}</span>
               </div>
               <div class="historial-item">
                 <label class="label">Valor Unitario:</label>
-                <span class="value">${entry.cambio.valorUnitario}</span>
+                <span class="value">${
+                  entry.estado_anterior.valorUnitario
+                }</span>
               </div>
               <div class="historial-item">
                 <label class="label">Valor Total:</label>
-                <span class="value">${entry.cambio.valorTotal}</span>
+                <span class="value">${entry.estado_anterior.valorTotal}</span>
+              </div>
+              <div class="historial-item">
+                <label class="label">Fecha de Adquisición:</label>
+                <span class="value">${entry.estado_anterior.fecha}</span>
+              </div>
+              <div class="historial-item">
+                <label class="label">Proveedor:</label>
+                <span class="value">${entry.estado_anterior.proveedor}</span>
+              </div>
+              <div class="historial-item">
+                <label class="label">Documentación:</label>
+                <span class="value">${
+                  entry.estado_anterior.documentacion
+                }</span>
               </div>
             `;
             modalContent.appendChild(entryDiv);
