@@ -4,7 +4,9 @@ const apiUrl = "http://localhost:5000/adquisiciones";
 function fetchAdquisiciones(
   filtroUnidad = "",
   filtroTipo = "",
-  filtroFecha = ""
+  filtroFecha = "",
+  filtroDocumentacion = "",
+  filtroProveedor = ""
 ) {
   let url = new URL(apiUrl);
 
@@ -12,6 +14,9 @@ function fetchAdquisiciones(
   if (filtroUnidad) url.searchParams.append("unidad", filtroUnidad);
   if (filtroTipo) url.searchParams.append("tipo", filtroTipo);
   if (filtroFecha) url.searchParams.append("fecha", filtroFecha);
+  if (filtroDocumentacion)
+    url.searchParams.append("documentacion", filtroDocumentacion);
+  if (filtroProveedor) url.searchParams.append("proveedor", filtroProveedor);
 
   fetch(url)
     .then((response) => response.json())
@@ -86,9 +91,21 @@ function aplicarFiltros() {
   const filtroUnidad = document.getElementById("filtroUnidad").value.trim();
   const filtroTipo = document.getElementById("filtroTipo").value.trim();
   const filtroFecha = document.getElementById("filtroFecha").value;
+  const filtroDocumentacion = document
+    .getElementById("filtroDocumentacion")
+    .value.trim();
+  const filtroProveedor = document
+    .getElementById("filtroProveedor")
+    .value.trim();
 
   // Llamar a la función que obtiene adquisiciones con los filtros aplicados
-  fetchAdquisiciones(filtroUnidad, filtroTipo, filtroFecha);
+  fetchAdquisiciones(
+    filtroUnidad,
+    filtroTipo,
+    filtroFecha,
+    filtroDocumentacion,
+    filtroProveedor
+  );
 }
 
 function updateValorTotal() {

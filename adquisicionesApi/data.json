@@ -1,61 +1,6 @@
 {
     "adquisiciones": [
         {
-            "id": 1,
-            "presupuesto": 10000000000,
-            "unidad": "Direcci\u00f3n de Medicamentos y Tecnolog\u00edas en Salud",
-            "tipo": "Medicamentos",
-            "cantidad": 100000,
-            "valorUnitario": 2000,
-            "valorTotal": 200000000,
-            "fecha": "2023-07-20",
-            "proveedor": "Laboratorios Bayer S.A.",
-            "documentacion": "Orden de compra No. 2023-07-20-001, factura No. 2023-07-20-001",
-            "historial": [
-                {
-                    "cambio": {
-                        "presupuesto": 10000000000,
-                        "unidad": "Direcci\u00f3n de Medicamentos y Tecnolog\u00edas en Salud",
-                        "tipo": "Medicamentos",
-                        "cantidad": 10000,
-                        "valorUnitario": 2000,
-                        "valorTotal": 20000000,
-                        "fecha": "2023-07-20",
-                        "proveedor": "Laboratorios Bayer S.A.",
-                        "documentacion": "Orden de compra No. 2023-07-20-001, factura No. 2023-07-20-001"
-                    },
-                    "fecha": "2024-08-27T02:49:11.803803"
-                },
-                {
-                    "cambio": {
-                        "presupuesto": 10000000000,
-                        "unidad": "Direcci\u00f3n de Medicamentos y Tecnolog\u00edas en Salud",
-                        "tipo": "Medicamentos",
-                        "cantidad": 100000,
-                        "valorUnitario": 2000,
-                        "valorTotal": 200000000,
-                        "fecha": "2023-07-20",
-                        "proveedor": "Laboratorios Bayer S.A.",
-                        "documentacion": "Orden de compra No. 2023-07-20-001, factura No. 2023-07-20-001"
-                    },
-                    "fecha": "2024-08-27T02:55:28.567472"
-                }
-            ]
-        },
-        {
-            "id": 2,
-            "presupuesto": 3000000,
-            "unidad": "sistemas",
-            "tipo": "software",
-            "cantidad": 3,
-            "valorUnitario": 1000000,
-            "valorTotal": 3000000,
-            "fecha": "2024-08-07",
-            "proveedor": "software sas",
-            "documentacion": "software IA",
-            "historial": []
-        },
-        {
             "id": 3,
             "presupuesto": 4000000,
             "unidad": "sistemas",
@@ -66,6 +11,19 @@
             "fecha": "2024-06-04",
             "proveedor": "claro",
             "documentacion": "internet",
+            "historial": []
+        },
+        {
+            "id": 4,
+            "presupuesto": 10000000000,
+            "unidad": "Direcci\u00f3n de Medicamentos y Tecnolog\u00edas en Salud",
+            "tipo": "Medicamentos",
+            "cantidad": 100000,
+            "valorUnitario": 2000,
+            "valorTotal": 200000000,
+            "fecha": "2023-07-20",
+            "proveedor": "Laboratorios Bayer S.A.",
+            "documentacion": "Orden de compra No. 2023-07-20-001, factura No. 2023-07-20-001",
             "historial": []
         }
     ]

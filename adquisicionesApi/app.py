@@ -22,8 +22,37 @@ def save_data(data):
 # Ruta para obtener todas las adquisiciones
 @app.route('/adquisiciones', methods=['GET'])
 def get_all_adquisiciones():
+    unidad = request.args.get('unidad')
+    tipo = request.args.get('tipo')
+    fecha = request.args.get('fecha')
+    documentacion = request.args.get('documentacion')
+    proveedor = request.args.get('proveedor')
+
     data = load_data()
-    return jsonify(data.get('adquisiciones', []))
+    adquisiciones = data.get('adquisiciones', [])
+
+    # Aplicar filtro por unidad
+    if unidad:
+        adquisiciones = [adq for adq in adquisiciones if adq['unidad'].lower() == unidad.lower()]
+
+    # Aplicar filtro por tipo
+    if tipo:
+        adquisiciones = [adq for adq in adquisiciones if adq['tipo'].lower() == tipo.lower()]
+
+    # Aplicar filtro por fecha
+    if fecha:
+        adquisiciones = [adq for adq in adquisiciones if adq['fecha'] == fecha]
+
+    # Aplicar filtro por documentacion
+    if documentacion:
+        adquisiciones = [adq for adq in adquisiciones if documentacion.lower() in adq['documentacion'].lower()]
+
+    # Aplicar filtro por proveedor
+    if proveedor:
+        adquisiciones = [adq for adq in adquisiciones if proveedor.lower() in adq['proveedor'].lower()]
+
+    return jsonify(adquisiciones)
+
 
 # Ruta para obtener una adquisición por ID
 @app.route('/adquisiciones/<int:id>', methods=['GET'])
